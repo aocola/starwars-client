@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2021",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "outDir": "./dist",     // Carpeta de salida
+    "rootDir": "./src",      // Carpeta raíz
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "types": ["node"],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["*"]
+    },
+  },
+  "include": ["src/**/*.ts"],    // Incluye todos los archivos .ts en src
+  "exclude": ["node_modules", "dist", "test"] // Excluye node_modules, dist y test
+}

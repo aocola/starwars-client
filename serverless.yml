@@ -1,0 +1,62 @@
+service: starwars-content
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  apiGateway:
+    minimumCompressionSize: 1024  
+    shouldStartNameWithService: true
+
+functions:
+  api:
+    handler: dist/lambda.handler  
+    events:
+      - http:
+          path: /root
+          method: GET
+      - http:
+          path: /film
+          method: GET
+      - http:
+          path: /film/{id}
+          method: GET
+      - http:
+          path: /people
+          method: GET
+      - http:
+          path: /people/{id}
+          method: GET
+      - http:
+          path: /planet
+          method: GET
+      - http:
+          path: /planet/{id}
+          method: GET
+      - http:
+          path: /species
+          method: GET
+      - http:
+          path: /species/{id}
+          method: GET
+      - http:
+          path: /starship
+          method: GET
+      - http:
+          path: /starship/{id}
+          method: GET
+      - http:
+          path: /vehicle
+          method: GET
+      - http:
+          path: /vehicle/{id}
+          method: GET
+
+package:
+  individually: true
+  include:
+    - dist/**
+    - node_modules/**
+    
+plugins:
+  - serverless-offline 
